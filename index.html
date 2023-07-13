@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Добавить фавикон -->
+    <!-- Добавить переменные -->
+    <!-- Узнать, можно ли сделать ссылки без решётки -->
+    <!-- Добавить ридми -->
+    <title>Bookshop</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container container_header">
+            <div class="logo">
+                <img class="logo__image" src="images/logo.svg" alt="Bookshop logo">
+            </div>
+            <nav class="nav">
+                <button class="nav__burger-button">
+                    <img src="images/burger-menu-icon.svg" alt="Burger menu icon">
+                </button>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link nav__link_active" href="#">BOOKS</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">AUDIOBOOKS</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">STATIONERY & GIFTS</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">BLOG</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="action-buttons">
+                <button class="action-buttons__item">
+                    <img src="images/button-user.svg" alt="Sign in button">
+                </button>
+                <button class="action-buttons__item">
+                    <img src="images/button-search.svg" alt="Search button">
+                </button>
+                <button class="action-buttons__item">
+                    <img src="images/button-shopbag.svg" alt="Shop bag button">
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="slider">
+            <div class="container container_slider">
+                <img src="images/slider-image-1.png" alt="Slider image" class="slider__item">
+                <div class="slider__dots-list">
+                    <button class="slider__dots-item slider__dots-item_active"></button>
+                    <button class="slider__dots-item"></button>
+                    <button class="slider__dots-item"></button>
+                </div>
+                <a href="#" class="slider__link slider__link_1"></a>
+                <a href="#" class="slider__link slider__link_2"></a>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
