@@ -70,17 +70,20 @@ let booksMenuLink = document.querySelectorAll('.books-menu__link');
 
 booksMenuLink.forEach(item => {
     item.addEventListener('click', () => {
-        booksCurrentSubject = item.innerHTML;
-        booksStartIndex = 0;
-        document.querySelector('.books-content__list').innerHTML = '';
-
-        addBooks();
-
         let parent = item.parentNode;
-        let currentActiveItem = document.querySelector('.books-menu__item_active');
 
-        parent.classList.toggle('books-menu__item_active');
-        currentActiveItem.classList.toggle('books-menu__item_active');
+        if (!parent.classList.contains('books-menu__item_active')) {
+            booksCurrentSubject = item.innerHTML;
+            booksStartIndex = 0;
+            document.querySelector('.books-content__list').innerHTML = '';
+
+            addBooks();
+
+            let currentActiveItem = document.querySelector('.books-menu__item_active');
+
+            parent.classList.toggle('books-menu__item_active');
+            currentActiveItem.classList.toggle('books-menu__item_active');
+        }
     });
 });
 
@@ -147,9 +150,11 @@ function addBooks() {
                 }
 
                 let description = item.volumeInfo.description ? item.volumeInfo.description.slice(0, 100) + '...' : '';
-                let price = item.saleInfo.retailPrice ? `${item.saleInfo.retailPrice.amount} ${item.saleInfo.retailPrice.currencyCode}` : '';
+                let price = item.saleInfo.retailPrice ? `${item.saleInfo.retailPrice.amount} ${item.saleInfo.retailPrice.currencyCode}` : 'NOT FOR SALE';
 
-                result += `
+                let button = (price != 'NOT FOR SALE') ? '<button class="books-content__button books-content__button_purchase">BUY NOW</button>' : '';
+
+                let newBookItem = `
                     <div class="books-content__item">
                         <div class="books-content__leftside">
                             <img src="${image}" alt="Book cover" class="books-content__cover">
@@ -161,11 +166,15 @@ function addBooks() {
                             <p class="books-content__description">${description}</p>
                             <p class="books-content__price">${price}</p>
                             <div class="books-content__purchase">
-                                <button class="books-content__button books-content__button_purchase">BUY NOW</button>
+                                ${button}
                             </div>
                         </div>
                     </div>
                 `;
+
+                if (!document.querySelector('.books-content__list').innerHTML.includes(`${title}`)) {
+                    result += newBookItem;
+                }
             });
 
             document.querySelector('.books-content__list').innerHTML += result;
