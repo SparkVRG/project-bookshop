@@ -8,45 +8,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
-    <!-- Добавить фавикон -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Добавить переменные -->
-    <!-- Узнать, можно ли сделать ссылки без решётки -->
     <!-- Добавить ридми -->
+    <!-- Пересмотреть имена -->
+    <!-- Подключить линтер -->
+    <!-- Удалить комментарии -->
+    <!-- Заменить rating count на review count, если это возможно -->
     <title>Bookshop</title>
 </head>
 <body>
     <header class="header">
         <div class="container container_header">
             <div class="logo">
-                <img class="logo__image" src="images/logo.svg" alt="Bookshop logo">
+                <a href="#">
+                    <img class="logo__image" src="images/logo.svg" alt="Bookshop logo">
+                </a>
             </div>
             <nav class="nav">
                 <button class="nav__burger-button">
-                    <img src="images/burger-menu-icon.svg" alt="Burger menu icon">
+                    <img src="images/burger-menu-icon.svg" alt="Burger menu icon" class="nav__burger-button-icon">
                 </button>
                 <ul class="nav__list">
-                    <li class="nav__item">
+                    <li>
                         <a class="nav__link nav__link_active" href="#">BOOKS</a>
                     </li>
-                    <li class="nav__item">
+                    <li>
                         <a class="nav__link" href="#">AUDIOBOOKS</a>
                     </li>
-                    <li class="nav__item">
+                    <li>
                         <a class="nav__link" href="#">STATIONERY & GIFTS</a>
                     </li>
-                    <li class="nav__item">
+                    <li>
                         <a class="nav__link" href="#">BLOG</a>
                     </li>
                 </ul>
             </nav>
-            <div class="action-buttons">
-                <button class="action-buttons__item">
+            <div class="actions">
+                <button class="actions__button">
                     <img src="images/button-user.svg" alt="Sign in button">
                 </button>
-                <button class="action-buttons__item">
+                <button class="actions__button">
                     <img src="images/button-search.svg" alt="Search button">
                 </button>
-                <button class="action-buttons__item">
+                <button class="actions__button">
                     <img src="images/button-shopbag.svg" alt="Shop bag button">
                 </button>
             </div>
@@ -56,13 +64,75 @@
         <section class="slider">
             <div class="container container_slider">
                 <img src="images/slider-image-1.png" alt="Slider image" class="slider__item">
-                <div class="slider__dots-list">
+                <div class="slider__dots">
                     <button class="slider__dots-item slider__dots-item_active"></button>
                     <button class="slider__dots-item"></button>
                     <button class="slider__dots-item"></button>
                 </div>
                 <a href="#" class="slider__link slider__link_1"></a>
                 <a href="#" class="slider__link slider__link_2"></a>
+            </div>
+        </section>
+        <section class="books">
+            <div class="container container_books">
+                <div class="books-menu">
+                    <ul class="books-menu__list">
+                        <li class="books-menu__item books-menu__item_active">
+                            <a href="#" class="books-menu__link">Architecture</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Art & Fashion</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Biography</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Business</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Crafts & Hobbies</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Drama</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Fiction</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Food & Drink</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Health & Wellbeing</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">History & Politics</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Humor</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Poetry</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Psychology</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Science</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Technology</a>
+                        </li>
+                        <li class="books-menu__item">
+                            <a href="#" class="books-menu__link">Travel & Maps</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="books-content">
+                    <div class="books-content__list"></div>
+                    <div class="books-content__bottom">
+                        <button class="books-content__button">LOAD MORE</button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
