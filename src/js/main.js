@@ -63,11 +63,20 @@ function autoplaySlider() {
     changeSlide(sliderCurrentItem);
 }
 
+let booksApiKey = 'AIzaSyBvtqvr61MPkM6LdRkBrQrK3aX9PP2LXsg';
+let booksCurrentSubject = document.querySelector('.books-menu__item_active .books-menu__link').innerHTML;
+let booksStartIndex = 0;
 let booksMenuLink = document.querySelectorAll('.books-menu__link');
 
 booksMenuLink.forEach(item => {
-    item.addEventListener('click', (event) => {
-        let parent = event.target.parentNode;
+    item.addEventListener('click', () => {
+        booksCurrentSubject = item.innerHTML;
+        booksStartIndex = 0;
+        document.querySelector('.books-content__list').innerHTML = '';
+
+        addBooks();
+
+        let parent = item.parentNode;
         let currentActiveItem = document.querySelector('.books-menu__item_active');
 
         parent.classList.toggle('books-menu__item_active');
@@ -75,29 +84,37 @@ booksMenuLink.forEach(item => {
     });
 });
 
-let booksApiKey = 'AIzaSyBvtqvr61MPkM6LdRkBrQrK3aX9PP2LXsg';
-let booksCurrentSubject = document.querySelector('.books-menu__item_active .books-menu__link').innerHTML;
-
 addBooks();
 
+let booksLoadButton = document.querySelector('.books-content__button_load');
+
+booksLoadButton.addEventListener('click', addBooks);
+
 function addBooks() {
-    let apiUrl = `https://www.googleapis.com/books/v1/volumes?q="subject:${booksCurrentSubject}"&key=${booksApiKey}&printType=books&startIndex=0&maxResults=6&langRestrict=en`
+    let apiUrl = `https://www.googleapis.com/books/v1/volumes?q="subject:${booksCurrentSubject}"&key=${booksApiKey}&printType=books&startIndex=${booksStartIndex}&maxResults=6&langRestrict=en`;
+    booksStartIndex += 6;
     let result = '';
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(response => {
             response.items.forEach(item => {
-                let image = item.volumeInfo.imageLinks.thumbnail ? item.volumeInfo.imageLinks.thumbnail : 'images/books-placeholder.jpg';
+                let image = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : 'images/books-placeholder.jpg';
                 let authors = '';
 
-                item.volumeInfo.authors.forEach((item, index) => {
-                    if (index == 0) {
-                        authors += item;
-                    } else {
-                        authors += `, ${item}`;
+                if (item.volumeInfo.authors) {
+                    item.volumeInfo.authors.forEach((item, index) => {
+                        if (index == 0) {
+                            authors += item;
+                        } else {
+                            authors += `, ${item}`;
+                        }
+                    });
+
+                    if (authors.split(', ').length > 3) {
+                        authors = authors.split(', ').slice(0, 3).join(', ') + ' and others';
                     }
-                });
+                }
 
                 let title = item.volumeInfo.title;
 
@@ -129,7 +146,7 @@ function addBooks() {
                     `;
                 }
 
-                let description = item.volumeInfo.description.slice(0, 100) + '...';
+                let description = item.volumeInfo.description ? item.volumeInfo.description.slice(0, 100) + '...' : '';
                 let price = item.saleInfo.retailPrice ? `${item.saleInfo.retailPrice.amount} ${item.saleInfo.retailPrice.currencyCode}` : '';
 
                 result += `
@@ -151,17 +168,6 @@ function addBooks() {
                 `;
             });
 
-            console.log(response.items);
-
-            document.querySelector('.books-content__list').innerHTML = result;
+            document.querySelector('.books-content__list').innerHTML += result;
         });
 }
-
-{/* <div class="books-content__rating">
-                                <span class="books-content__rating-star books-content__rating-star_active"></span>
-                                <span class="books-content__rating-star books-content__rating-star_active"></span>
-                                <span class="books-content__rating-star books-content__rating-star_active"></span>
-                                <span class="books-content__rating-star books-content__rating-star_active"></span>
-                                <span class="books-content__rating-star"></span>
-                                <span class="books-content__rating-count">252 review</span>
-                            </div> */}
