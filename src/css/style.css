@@ -1,5 +1,9 @@
 @import "reset.css";
 
+.body {
+    overflow-x: hidden;
+}
+
 .header {
     background-color: #ffffff;
     position: sticky;
@@ -64,9 +68,42 @@
     cursor: pointer;
 }
 
+.actions__button_shop-bag {
+    position: relative;
+}
+
+.actions__shop-counter {
+    display: none;
+    background-color: #FF353A;
+    border-radius: 50%;
+    position: absolute;
+    top: 40%;
+    right: -30%;
+    width: 13px;
+    height: 13px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.actions__shop-counter_active {
+    display: block;
+}
+
+@media screen and (max-width: 1150px) {
+    .container_header {
+        width: 97%;
+    }
+}
+
 @media screen and (max-width: 1120px) {
     .container {
         width: 100%;
+    }
+
+    .container_header {
+        width: 97%;
     }
 }
 

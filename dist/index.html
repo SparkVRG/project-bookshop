@@ -13,15 +13,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Добавить переменные -->
+    <!-- Семантическая вёрстка -->
     <!-- Добавить ридми -->
     <!-- Пересмотреть имена -->
+    <!-- Проверить сайт в гугловской шляпе -->
     <!-- Подключить линтер -->
     <!-- Удалить комментарии -->
     <!-- Заменить rating count на review count, если это возможно -->
     <!-- Перепроверить адаптив -->
+    <!-- Перепроверить JS (переименовать переменные, они теперь локальные) -->
+    <!-- Использование каких-нибудь импортированных переменных или функций -->
+    <!-- Тень от книг -->
+    <!-- Информация о книгах, добавленных в корзину, должна сохраняться в localStorage. -->
     <title>Bookshop</title>
 </head>
-<body>
+<body class="body">
     <header class="header">
         <div class="container container_header">
             <div class="logo">
@@ -55,7 +61,8 @@
                 <button class="actions__button">
                     <img src="images/button-search.svg" alt="Search button">
                 </button>
-                <button class="actions__button">
+                <button class="actions__button actions__button_shop-bag">
+                    <div class="actions__shop-counter"></div>
                     <img src="images/button-shopbag.svg" alt="Shop bag button">
                 </button>
             </div>
