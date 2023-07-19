@@ -1,6 +1,6 @@
 import '../css/style.css';
-import * as slider from './slider.js';
-import * as books from './books.js';
+import './slider.js';
+import './books.js';
 import { toggleNavItems, toggleNavBurger } from './navActive.js';
 
 let links = document.querySelectorAll('a');

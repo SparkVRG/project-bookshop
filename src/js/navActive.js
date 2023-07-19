@@ -3,7 +3,7 @@ function toggleNavItems(event) {
     currentActiveItem.classList.toggle('nav__link_active');
 
     event.target.classList.toggle('nav__link_active');
-};
+}
 
 function toggleNavBurger() {
     let navList = document.querySelector('.nav__list');
