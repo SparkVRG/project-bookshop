@@ -19,7 +19,35 @@ menuItems.forEach(item => {
         if (!parent.classList.contains('books-menu__item_active')) {
             let currentActiveItem = document.querySelector('.books-menu__item_active');
 
-            currentSubject = item.innerHTML;
+            switch(item.innerHTML) {
+                case 'Art &amp; Fashion':
+                    currentSubject = 'Art';
+                    break;
+
+                case 'Biography':
+                    currentSubject = 'Biography &amp; Autobiography';
+                    break;
+
+                case 'Food &amp; Drink':
+                    currentSubject = 'Cooking';
+                    break;
+
+                case 'Health &amp; Wellbeing':
+                    currentSubject = 'Health &amp; Fitness';
+                    break;
+
+                case 'History &amp; Politics':
+                    currentSubject = 'History';
+                    break;
+
+                case 'Travel &amp; Maps':
+                    currentSubject = 'Travel';
+                    break;
+
+                default:
+                    currentSubject = item.innerHTML;
+            }
+
             startIndex = 0;
             booksPlace.innerHTML = '';
 

@@ -88,7 +88,7 @@
 }
 
 .actions__shop-counter_active {
-    display: block;
+    display: inline-block;
 }
 
 @media screen and (max-width: 1150px) {
